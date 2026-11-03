@@ -1,0 +1,4 @@
+{% extends 'base.html' %}{% block title %}Remover funcionário{% endblock %}{% block content %}<h1>Remover funcionário</h1><dl class="row"><dt class="col-sm-3">Nome</dt><dd class="col-sm-9">{{ fun.nome }}</dd>
+<dt class="col-sm-3">CPF</dt><dd class="col-sm-9">{{ fun.cpf }}</dd>
+<dt class="col-sm-3">E-mail</dt><dd class="col-sm-9">{{ fun.email }}</dd>
+<dt class="col-sm-3">Remuneração</dt><dd class="col-sm-9">R$ {{ fun.remuneracao|floatformat:2 }}</dd></dl><p>Confirma a exclusão deste funcionário? Esta ação não poderá ser desfeita.</p><form method="post">{% csrf_token %}<nav><button class="btn btn-danger" type="submit">Confirmar exclusão</button><a class="btn btn-outline-secondary" href="{% url 'lista_funcionarios' %}">Cancelar e voltar</a></nav></form>{% endblock %}

@@ -1,0 +1,10 @@
+{% extends 'base.html' %}
+{% load django_bootstrap5 %}
+{% block title %}{% if object %}Editar{% else %}Cadastrar{% endif %} funcionário{% endblock %}
+{% block content %}
+<h1>{% if object %}Editar{% else %}Cadastrar{% endif %} funcionário</h1>
+<form method="post">
+{% csrf_token %}{% bootstrap_form form %}
+<nav><button type="submit" class="btn btn-primary">{% if object %}Salvar alterações{% else %}Cadastrar{% endif %}</button>
+<a href="{% url 'lista_funcionarios' %}" class="btn btn-outline-secondary">Voltar</a></nav>
+</form>{% endblock %}
